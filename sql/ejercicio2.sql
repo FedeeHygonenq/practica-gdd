@@ -3,9 +3,18 @@
 
 USE [GD2015C1]
 GO
-SELECT p.prod_codigo, p.prod_detalle
-FROM dbo.Factura f
-JOIN dbo.Item_Factura i ON f.fact_numero = i.item_numero
-JOIN dbo.Producto p ON i.item_producto = p.prod_codigo
+SELECT
+    p.prod_codigo,
+    p.prod_detalle
+FROM
+dbo.Factura f
+JOIN
+    dbo.Item_Factura i ON f.fact_numero = i.item_numero
+JOIN
+    dbo.Producto p ON i.item_producto = p.prod_codigo
 WHERE YEAR(f.fact_fecha) = 2012
-ORDER BY p.prod_precio
+GROUP BY
+    p.prod_codigo,
+    p.prod_detalle
+ORDER BY
+    Sum(i.item_cantidad) DESC;
