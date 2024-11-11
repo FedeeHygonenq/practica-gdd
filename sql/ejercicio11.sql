@@ -7,4 +7,4 @@ USE [GD2015C1]
   where YEAR(f2.fact_fecha) = 2012
   GROUP BY f.fami_detalle, i.item_precio
   HAVING sum(f2.fact_total)>20000
-  ORDER BY COUNT (p.prod_codigo)
+  ORDER BY COUNT (p.prod_codigo) DESC
