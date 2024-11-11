@@ -5,7 +5,8 @@ USE [GD2015C1]
 GO
 SELECT
     p.prod_codigo,
-    p.prod_detalle
+    p.prod_detalle,
+    Sum(i.item_cantidad)
 FROM
 dbo.Factura f
 JOIN

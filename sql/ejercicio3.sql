@@ -9,4 +9,4 @@ JOIN dbo.STOCK s ON s.stoc_producto = p.prod_codigo
 GROUP BY
 p.prod_codigo,
 p.prod_detalle
-ORDER BY p.prod_detalle DESC
+ORDER BY p.prod_detalle ASC
